@@ -1,4 +1,5 @@
 
+
 public class Solution {
     public int[] solve(TreeNode root) {
         ArrayList<Integer> list=new ArrayList<>();     
@@ -42,4 +43,41 @@ public class Solution {
 
     
 }
+
+
+class Tree
+{
+     ArrayList<Integer> result;
+
+    public ArrayList<Integer> diagonal(Node root)
+    {
+        result = new ArrayList<>();
+        
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while(!queue.isEmpty()) 
+        {
+            Node curr = queue.remove();
+            while(curr!=null) 
+            {
+                result.add(curr.data);
+                if(curr.left!=null)
+                    queue.add(curr.left);
+                curr = curr.right;
+            }
+        }
+        
+        return result;
+    }
+
+}
+
+
+
+
+
+
+
+
 
