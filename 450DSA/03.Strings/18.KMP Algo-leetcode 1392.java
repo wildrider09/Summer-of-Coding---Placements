@@ -9,7 +9,7 @@ class Solution {
         
         for( i=1;i<n;i++)
         {
-            while(X[j]!=X[i] &j>0)
+            while(X[j]!=X[i] && j>0)
                 j=arr[j-1];
             if(X[i]==X[j])
             {
