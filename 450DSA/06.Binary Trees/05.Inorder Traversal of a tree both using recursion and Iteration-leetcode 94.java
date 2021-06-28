@@ -49,3 +49,53 @@ class Solution {
     }
 
 }
+
+
+
+//InOrder traversal
+
+class Solution {
+    
+    class Pair{
+        Node root;
+        int state;
+        public Pair(Node t,int x)
+        {
+            root=t;
+            state=x;
+        }
+    }
+    // Function to return a list containing the inorder traversal of the tree.
+    ArrayList<Integer> inOrder(Node root) {
+        // Code
+        Stack<Pair> st=new Stack<>();
+        ArrayList<Integer> list=new ArrayList<>();
+        st.push(new Pair(root,1));
+        
+        while(st.size()>0)
+        {
+            Pair temp=st.peek();
+            if(temp.state==1)
+            {
+                temp.state++;
+                if(temp.root.left!=null)
+                    st.push(new Pair(temp.root.left,1));
+            }
+            else if(temp.state==2)
+            {
+                temp.state++;
+                list.add(temp.root.data);
+                if(temp.root.right!=null)
+                    st.push(new Pair(temp.root.right,1));
+            }
+            else 
+            {
+                temp.state++;
+                st.pop();
+            }
+            
+        }
+        return list;
+        
+    }
+}
