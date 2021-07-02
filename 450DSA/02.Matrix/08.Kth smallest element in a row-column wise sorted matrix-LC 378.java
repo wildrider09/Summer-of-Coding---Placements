@@ -42,24 +42,23 @@ class Solution {
 //time O(n log(max range)), space O(1)
 class Solution {
     
-	 public int kthSmallest(int[][] mat, int k) {
+     public int kthSmallest(int[][] mat, int k) {
     
          int n=mat.length,ans=0;
          int low=mat[0][0],high=mat[n-1][n-1];
-         while(low<=high)
+         while(low<high)
          {
              int mid=(low+high)/2;
              int count=count(mat,mid);
              if(count<k)
                  low=mid+1;
-             else{
-                 
-                 high=mid-1;
-            }
+             else
+                 high=mid;
          }
          return low;
          
     }
+    
     
     public int count(int arr[][],int x)
     {

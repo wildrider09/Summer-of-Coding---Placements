@@ -5,7 +5,6 @@ class Solution
     {
         // code here
         int min=-1,max=-1,count=0;
-        
         while(max<gallery.length-1)
         {
             for(int i=0;i<gallery.length;i++)
@@ -18,11 +17,10 @@ class Solution
             count++;
             min=max;
         }
-        
-        if(min==-1)  return -1;
         return count;
     }
 }
+
 
 //lc
 class Solution {
