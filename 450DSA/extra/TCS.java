@@ -1,79 +1,101 @@
 import java.util.*;
 import java.io.*;
-class Tickets
+public class Solution
 {
-    private int empId,ticketNo,ticketAssigned;
-    private String empName;
-    
-    public Tickets(int empId,int ticketNo,int ticketAssigned,String empName)
-    {
-        this.empId=empId;
-        this.ticketNo=ticketNo;
-        this.ticketAssigned=ticketAssigned;
-        this.empName=empName;
-    }
-    private static int getTicketNo(Tickets arr[],int x)
-    {
-        int m=0;
-        for(int i=0;i<4;i++)
-        {
-            if(arr[i].empId==x)
-                m=arr[i].ticketNo;
-        }
-        return m;
-    }
-    private static Tickets getThirdHighestTicketAssigned(Tickets arr[])
-    {
-        int temp[]=new int[4];
-        for(int i=0;i<4;i++)
-        {
-            temp[i]=arr[i].ticketAssigned;
-        }
-        Arrays.sort(temp);
-        for(int i=1;i<4;i++)
-        {
-            if(temp[i]==temp[i-1])
-                return null;
-        }
-        int x=temp[1];
+    public static void main(String args[])throws IOException
+    { 
+        Scanner sc=new Scanner(System.in);       
+        int n=sc.nextInt();
+        Player players[]=new Player[n];
         
-        for(int i=0;i<4;i++)
-            if(arr[i].ticketAssigned==x)
-                return arr[i];
-                
+        for(int i=0;i<n;i++)
+        {
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int c=sc.nextInt();sc.nextLine();
+            String d=sc.nextLine();
+            String e=sc.nextLine();
+            players[i]=new Player(a,b,c,d,e);
+            
+        }
+        
+        int ss=sc.nextInt();
+        
+        Player t=findPlayerWithMinimumMAtchesPlayed(players);
+        if(t==null)
+            System.out.println("No Player found with mentioned attribute");
+        else
+        {
+            System.out.println("id-"+t.id);
+            System.out.println("matchesPlayed-"+t.matchesPlayed);
+            System.out.println("totalRuns-"+t.totalRuns);
+            System.out.println("name-"+t.name);
+            System.out.println("team-"+t.team);
+            
+        }
+        
+        Player tt=searchPlayerById(players,ss);
+        if(tt==null)
+            System.out.println("No Player found with mentioned attribute");
+        else
+        {
+            System.out.println("id-"+tt.id);
+            System.out.println("matchesPlayed-"+tt.matchesPlayed);
+            System.out.println("totalRuns-"+tt.totalRuns);
+            System.out.println("name-"+tt.name);
+            System.out.println("team-"+tt.team);
+            
+        }
+        
+    }
+    
+    public static Player findPlayerWithMinimumMAtchesPlayed(Player[] players)
+    {
+        if(players.length>0)
+        {
+            int tmp=Integer.MAX_VALUE;
+            Player t=null;
+            for(int i=0;i<players.length;i++)
+            {
+                if(tmp>players[i].matchesPlayed)
+                {
+                    tmp=players[i].matchesPlayed;
+                    t=players[i];
+                }
+            }
+            return t;
+        }
+        
+        else 
+            return null;
+        
+    }
+    
+    public static Player searchPlayerById(Player[] players,int ss)
+    {
+        for(int i=0;i<players.length;i++)
+        {
+             if(players[i].id==ss)
+                return players[i];
+        }
+        
         return null;
     }
-    public static void main(String args[])throws IOException
+}
+
+class Player
+{
+    int id,matchesPlayed,totalRuns;
+    String name,team;
+    
+    Player(int a,int b,int c,String d,String e)
     {
-    	InputStreamReader r=new InputStreamReader(System.in);    
-        BufferedReader br=new BufferedReader(r);            
-    	int k=0;
-    	Tickets arr[]=new Tickets[4];
-    	for(int i=0;i<4;i++)
-    	{
-    	   int a=Integer.parseInt(br.readLine());
-    	   String b=br.readLine();
-    	   int c=Integer.parseInt(br.readLine());
-    	   int d=Integer.parseInt(br.readLine());
-    	   arr[k++]=new Tickets(a,c,d,b);
-    	}
-    	int need=Integer.parseInt(br.readLine());
-    	int t=getTicketNo(arr,need);
-    	if(t>0)
-    	    System.out.println(t);
-        else
-            System.out.println("Incorrect employee id");
-            
-    	Tickets t1=getThirdHighestTicketAssigned(arr);
-    	
-    	if(t1==null)
-    	     System.out.println("No Ticket available");
-    	else
-    	{
-    	     System.out.println(t1.empId); 
-    	     System.out.println(t1.ticketAssigned);
-    	}
-    	    
+        id=a;
+        matchesPlayed=b;
+        totalRuns=c;
+        name=d;
+        team=e;
     }
+
 }
 
