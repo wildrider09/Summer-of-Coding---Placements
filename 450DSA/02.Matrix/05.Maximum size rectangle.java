@@ -78,6 +78,7 @@ class Solution {
         
         for(int i=0;i<n;i++)
             max=Math.max(max, (arr[i]*(right[i]-left[i]-1)));    
+
         
         return max;
     }
