@@ -1,0 +1,119 @@
+int[] H1 = list.stream().mapToInt(Integer::intValue).toArray();
+String[] arr = list.stream().toArray(String[] ::new);
+
+Collections.reverse(list);
+
+Collections.sort(list);
+
+list.addAll(0,list1);
+            
+
+for (Map.Entry<Integer,String> entry : map.entrySet())
+     entry.setValue("ABC");
+     System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+
+for(int entry : map.keySet())
+    System.out.println("Key = " + entry);
+(or) 
+HashSet<Integer> set=new HashSet<>(map.keySet());            
+
+for(String entry : map.values())
+    System.out.println("Values = " + entry);
+
+List<int[]> list=new ArrayList<>();
+list.add(new int[]{v1,v2});
+list.toArray(new int[0][]);
+
+//arraylist
+if(clist.contains(c))
+	System.out.println(Collections.frequency(clist,c));
+
+Comparator for Min Heap(Priority Queue):
+PriorityQueue<ListNode> q=new PriorityQueue<>(1,new Compare());
+class Compare implements Comparator<ListNode> 
+{
+	public int compare (ListNode node1, ListNode node2) {
+
+		if (node1.val < node2.val) 	return -1;
+		else if (node1.val > node2.val)	return 1;
+		else 				return 0;
+	}
+}
+
+Comparator for 2D array sorting:
+int[][]arr
+
+~ Arrays.sort(arr,(a,b)->a[0]-b[0]);
+(or)
+~ Arrays.sort(arr,new Compare());
+  class Compare implements Comparator<int[]>
+    {
+        public int compare(int a[],int b[])
+        {
+            return a[0]-b[0];
+        }
+    }
+
+
+Max Heap:
+~ PriorityQueue<Integer> q=new PriorityQueue<>((a,b)->b-a);
+(or)
+~ PriorityQueue<Integer> q=new PriorityQueue<>(Collections.reverseOrder());
+(or)
+~ PriorityQueue<Integer> q=new PriorityQueue<>(1,new Compare());
+  class Compare implements Comparator<Integer>
+    {
+        public int compare(Integer a,Integer b) {
+            return b-a;
+        }
+    }              
+
+@Override
+        public int compare(Student customer1,
+                           Student customer2)
+        {
+  
+            // for comparison
+            int NameCompare = customer1.getName().compareTo(
+                customer2.getName());
+            int AgeCompare = customer1.getAge().compareTo(
+                customer2.getAge());
+  
+            // 2-level comparison
+            return (NameCompare == 0) ? AgeCompare
+                                      : NameCompare;
+        }
+
+Deque<String> deque= new LinkedList<String>();
+addFirst(): Adds an item at the front of Deque.
+addLast(): Adds an item at the rear of Deque.
+removeFirst(): Deletes an item from front of Deque.
+removeLast(): Deletes an item from rear of Deque.
+peekFirst(): Gets the front item from queue.
+peekLast(): Gets the last item from queue.
+isEmpty(): Checks whether Deque is empty or not.
+
+
+Queue
+q.add()
+q.remove() / q.poll()
+q.peek()
+
+
+
+
+l.get(i); will return Integer and then calling intValue(); on it will return the integer as type int.
+Converting an int to Integer is called boxing.
+Converting an Integer to int is called unboxing
+And so on for conversion between other primitive types and their corresponding Wrapper classes.
+
+Since java 5, it will automatically do the required conversions for you(autoboxing), so there is no difference in your examples if you are working with Java 5 or later.
+
+
+ArrayList<Integer> list=new ArrayList<>();
+list.remove(i); 			    //index remove
+list.remove(new Integer(pages[i]));	   // element remove
+
+queue
+q.remove()		//first element
+q.remove(element)	// element can be removed
