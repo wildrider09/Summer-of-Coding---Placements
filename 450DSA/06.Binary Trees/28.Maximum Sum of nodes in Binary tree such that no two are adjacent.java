@@ -10,8 +10,9 @@ public class Solution
     {
         if(root==null)
             return 0;
+
         if (root.left==null && root.right==null)
-			return root.data;
+	    return root.data;
 		
         if(map.get(root)!=null)
             return map.get(root);
@@ -19,13 +20,13 @@ public class Solution
         int incld=root.data;
         if(root.left!=null)
         {
-			incld+=solve(root.left.left,map);
+	    incld+=solve(root.left.left,map);
             incld+=solve(root.left.right,map);
         }
         
         if(root.right!=null)
         {
-			incld+=solve(root.right.left,map);
+	    incld+=solve(root.right.left,map);
             incld+=solve(root.right.right,map);
         }
         

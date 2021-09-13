@@ -29,11 +29,13 @@ class Solution
  
         else
            {
-               dp[i][j] = (countPS1(str,i + 1, j) + countPS1(str,i, j - 1)
+               	dp[i][j] = (countPS1(str,i + 1, j) + countPS1(str,i, j - 1)
                            - countPS1(str,i+1, j - 1))%mod;
-               if(dp[i][j]<0)
-                dp[i][j]+=mod;
-               return dp[i][j];
+               
+	       	if(dp[i][j]<0)
+               		dp[i][j]+=mod;
+               	
+		return dp[i][j];
            }
     }
 }

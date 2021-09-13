@@ -20,6 +20,7 @@ class Sol
                     st.push('}');
             }
         }
+
         while(!st.isEmpty())
         {
           char c= st.pop();  

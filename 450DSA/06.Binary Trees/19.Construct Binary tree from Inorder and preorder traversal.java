@@ -15,7 +15,7 @@ class Solution
         if(start>end)
             return null;
         
-        if(p>inorder.length-1 || p<0)
+        if(p>preorder.length-1 || p<0)
             return null;
         
         Node t=new Node(preorder[p]);

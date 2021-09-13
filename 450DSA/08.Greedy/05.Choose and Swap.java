@@ -10,8 +10,6 @@ class Solution{
         for(char ch : A.toCharArray())
             set.add(ch);
         
-        List<Character> set1 = new ArrayList<Character>(set);
-        
         while(k<set1.size() && i<A.length())
         {
             char ch=set1.get(k++);

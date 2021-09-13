@@ -28,8 +28,7 @@ class Solution {
                 t.next=t1;
                 t=t1;
             }
-            t1.right=null;
-            
+            t1.next=null;
             
         }
         return root;

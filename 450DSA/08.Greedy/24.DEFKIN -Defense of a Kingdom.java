@@ -34,8 +34,8 @@ class Solution {
         Stack<Integer> str2=new Stack<>();      // element
         int ansr[]=new int[n];
         
-        for(int i=n-1;i>=0;i--)
-        {
+        for(int i=n-1;i>=0;i--)		_ 4 3 2 3 2 _
+         {
             while(true)
             {
                 if(str1.isEmpty())

@@ -20,7 +20,8 @@ class Solution
         }
         
         
-         for(int i :nums){
+         for(int i :nums)
+	{
              
             if((i & (1<<pos)) >0)
                 t1=t1^i;

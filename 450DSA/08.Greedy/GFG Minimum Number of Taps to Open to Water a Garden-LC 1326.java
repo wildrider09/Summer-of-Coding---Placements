@@ -35,6 +35,7 @@ class Solution {
                 if(i-gallery[i]<=min && i+gallery[i]>max)
                     max=i+gallery[i];
             }
+
             if(min==max)    return -1;
             
             count++;
