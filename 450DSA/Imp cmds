@@ -2,7 +2,6 @@ int[] H1 = list.stream().mapToInt(Integer::intValue).toArray();
 String[] arr = list.stream().toArray(String[] ::new);
 
 Collections.reverse(list);
-
 Collections.sort(list);
 
 list.addAll(0,list1);
